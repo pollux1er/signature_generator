@@ -1,0 +1,12 @@
+@font-face {
+	font-family: 'futura';
+	src: url('futura/futura light bt.ttf');
+}
+@font-face {
+	font-family: 'futura bold';
+	src: url('futura/futura medium bt.ttf');
+}
+
+.fancy-font {
+	font-family: 'futura', sans-serif !important;
+}
