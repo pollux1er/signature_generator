@@ -20,19 +20,19 @@ function create_image($user) {
 	// if the file already exists dont create it again just serve up the original	
 	//if (!file_exists($file)) {	
 		// Creation de notre rectangle
-		$im = imagecreatetruecolor(300, 59);
+		$im = imagecreatetruecolor(300, 70);
 			
 		// Creation de quelques couleurs
 		$white = imagecolorallocate($im, 255, 255, 255); // blanc
 		$black = imagecolorallocate($im, 0, 0, 0); // noir
 		$grey = imagecolorallocate($im, 136, 129, 163); // noir
 		
-		imagefilledrectangle($im, 0, 0, 299, 58, $white); // Remplissage du rectangle en blanc
+		imagefilledrectangle($im, 0, 0, 299, 69, $white); // Remplissage du rectangle en blanc
 		
 		
 		imagettftext($im, $user[0]['font-size'], 0, 0, 16, $black, $fontname, $user[0]['name']);
-		imagettftext($im, $user[1]['font-size'], 0, 0, 35, $black, $fontfonction, $user[1]['name']);
-		imagettftext($im, $user[2]['font-size'], 0, 0, 55, $black, $fontfonction, $user[2]['name']);
+		imagettftext($im, $user[1]['font-size'], 0, 0, 41, $black, $fontfonction, $user[1]['name']);
+		imagettftext($im, $user[2]['font-size'], 0, 0, 65, $black, $fontfonction, $user[2]['name']);
 			
 		// create the image
 		imagepng($im, $file, $quality);
@@ -53,7 +53,7 @@ $user = array(
 			
 	array(
 		'name'=> '[CONTACT]',
-		'font-size'=>'8')
+		'font-size'=>'10')
 			
 );
 
@@ -85,7 +85,7 @@ if(isset($_GET['submit'])){
 			,
 			array(
 				'name'=> $_GET['tel'],
-				'font-size'=>'8',
+				'font-size'=>'10',
 			)
 		);
 	}
@@ -142,6 +142,7 @@ input{
 				<ul id="nav" class="menu equalize sf-menu clearfix sf-js-enabled sf-shadow">
 					<li id="menu-item-274" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-274"><a href="?pays=abidjan">Abidjan</a></li>
 					<li id="menu-item-275" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-275"><a href="?pays=douala">Douala</a></li>
+					<li id="menu-item-275" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-275"><a href="?pays=worldwide">Worldwide</a></li>
 				</ul>
 			</div>
 		</div>
@@ -191,8 +192,8 @@ Ceci génère un code HTML que vous pourrez copier et sauvegarder.</p>
 		<th style=""></th>
 	</tr>
 	<tr>
-		<td>
-			<img style="margin-left: 4px; margin-top: 10px;" src="<?php echo $filename;?>?id=<?php  echo rand(0,1292938);?>"  />
+		<td style="padding-left : 10px">
+			<img style="margin-left: 4px; margin-top: <?php if(@$_GET['pays'] == 'douala') echo "-6"; else echo "2"; ?>px;" src="<?php echo $filename;?>?id=<?php  echo rand(0,1292938);?>"  />
 			
 		</td>
 	</tr>
@@ -200,8 +201,26 @@ Ceci génère un code HTML que vous pourrez copier et sauvegarder.</p>
 		<td style="padding-bottom: 0px; padding-left: 0px;" class="fancy-font"></td>
 	</tr>
 	<tr>
-		<td width="770" style="padding:0px; padding-left : 0;  vertical-align: middle;" height="22" valign="middle">
-			<table style="margin-bottom : 0px;">
+		<td width="770" style="padding:0px; padding-left : 0;  vertical-align: middle;" height="12" valign="middle">
+						
+		</td>
+	</tr>
+	<tr>
+		<td style="font-family:Arial, sans-serif;font-size:14px;overflow:hidden;word-break:normal;text-align:center">
+			<?php if(isset($_GET['pays'])){
+			
+			if($_GET['pays'] == 'douala') { ?>
+				<img src="<?php echo $urlimages; ?>douala.png" width="80" height="25.3" style="width:80px" />
+			<?php } else { ?>
+				<img src="<?php echo $urlimages; ?>abidjan.png" width="80" height="25.3" style="width:80px" />
+			<?php }
+			} else { 
+			?>
+				<img src="<?php echo $urlimages; ?>douala.png" width="80" height="25.3" style="width:80px" />
+			<?php } ?>
+		</td>
+		<td style="word-break:normal">
+			<table style="margin-bottom : 0px;padding-left : 10px">
 			<tbody>
 			<tr>
 			<td>
@@ -245,27 +264,23 @@ Ceci génère un code HTML que vous pourrez copier et sauvegarder.</p>
 				<a style="color:black;text-decoration: none;" href="https://www.google.fr/maps/place/McCANN+Douala/@4.0444425,9.683916,17z/data=!3m1!4b1!4m5!3m4!1s0x106112fb09dcca83:0xbb93590cfd57ca73!8m2!3d4.0444425!4d9.6861047!5m1!1e1"><img src="<?php echo $urlimages; ?>location.png" /></a>
 			<?php } ?>
 			</td>
-			</tr>
-			</tbody>
-			</table>
-			
-		</td>
-	</tr>
-	<tr>
-		<td style="font-family:Arial, sans-serif;font-size:14px;overflow:hidden;word-break:normal;text-align:center">
+			<td>
 			<?php if(isset($_GET['pays'])){
 			
 			if($_GET['pays'] == 'douala') { ?>
-				<img src="<?php echo $urlimages; ?>douala.png" width="80" height="25.3" style="width:80px" />
+				<a style="color:black;text-decoration: none;" href="http://mccann-afrique.com/"><img src="<?php echo $urlimages; ?>site.png" /></a>
 			<?php } else { ?>
-				<img src="<?php echo $urlimages; ?>abidjan.png" width="80" height="25.3" style="width:80px" />
+				<a style="color:black;text-decoration: none;" href="http://mccannlabs.com/abidjan/"><img src="<?php echo $urlimages; ?>site.png" />
 			<?php }
 			} else { 
 			?>
-				<img src="<?php echo $urlimages; ?>douala.png" width="80" height="25.3" style="width:80px" />
+				<a style="color:black;text-decoration: none;" href="http://mccann-afrique.com/"><img src="<?php echo $urlimages; ?>site.png" /></a>
 			<?php } ?>
+			</td>
+			</tr>
+			</tbody>
+			</table>
 		</td>
-		<td style="word-break:normal"></td>
 	</tr>
 </table>
 <br />
@@ -303,8 +318,8 @@ Ceci génère un code HTML que vous pourrez copier et sauvegarder.</p>
 		<th style=""></th>
 	</tr>
 	<tr>
-		<td>
-			<img style="margin-left: 4px; margin-top: 10px;" src="<?php echo $urlimages . $filename;?>?id=<?php  echo rand(0,1292938);?>"  />
+		<td style="padding-left : 10px;margin-top : 6px">
+			<img style="margin-left: 4px; margin-top: <?php if($_GET['pays'] == 'douala') echo "0"; else echo "8"; ?>px;" src="<?php echo $urlimages . $filename;?>?id=<?php  echo rand(0,1292938);?>"  />
 			
 		</td>
 	</tr>
@@ -312,8 +327,26 @@ Ceci génère un code HTML que vous pourrez copier et sauvegarder.</p>
 		<td style="padding-bottom: 0px; padding-left: 0px;" class="fancy-font"></td>
 	</tr>
 	<tr>
-		<td width="770" style="padding:0px; padding-left : 0;  vertical-align: middle;" height="22" valign="middle">
-			<table style="margin-bottom : 0px;">
+		<td width="770" style="padding:0px; padding-left : 0;  vertical-align: middle;" height="12" valign="middle">
+						
+		</td>
+	</tr>
+	<tr>
+		<td style="font-family:Arial, sans-serif;font-size:14px;overflow:hidden;word-break:normal;text-align:center">
+			<?php if(isset($_GET['pays'])){
+			
+			if($_GET['pays'] == 'douala') { ?>
+				<img src="<?php echo $urlimages; ?>douala.png" width="80" height="25.3" style="width:80px" />
+			<?php } else { ?>
+				<img src="<?php echo $urlimages; ?>abidjan.png" width="80" height="25.3" style="width:80px" />
+			<?php }
+			} else { 
+			?>
+				<img src="<?php echo $urlimages; ?>douala.png" width="80" height="25.3" style="width:80px" />
+			<?php } ?>
+		</td>
+		<td style="word-break:normal">
+			<table style="margin-bottom : 0px;padding-left : 10px">
 			<tbody>
 			<tr>
 			<td>
@@ -357,27 +390,23 @@ Ceci génère un code HTML que vous pourrez copier et sauvegarder.</p>
 				<a style="color:black;text-decoration: none;" href="https://www.google.fr/maps/place/McCANN+Douala/@4.0444425,9.683916,17z/data=!3m1!4b1!4m5!3m4!1s0x106112fb09dcca83:0xbb93590cfd57ca73!8m2!3d4.0444425!4d9.6861047!5m1!1e1"><img src="<?php echo $urlimages; ?>location.png" /></a>
 			<?php } ?>
 			</td>
-			</tr>
-			</tbody>
-			</table>
-			
-		</td>
-	</tr>
-	<tr>
-		<td style="font-family:Arial, sans-serif;font-size:14px;overflow:hidden;word-break:normal;text-align:center">
+			<td>
 			<?php if(isset($_GET['pays'])){
 			
 			if($_GET['pays'] == 'douala') { ?>
-				<img src="<?php echo $urlimages; ?>douala.png" width="80" height="25.3" style="width:80px" />
+				<a style="color:black;text-decoration: none;" href="http://mccann-afrique.com/"><img src="<?php echo $urlimages; ?>site.png" /></a>
 			<?php } else { ?>
-				<img src="<?php echo $urlimages; ?>abidjan.png" width="80" height="25.3" style="width:80px" />
+				<a style="color:black;text-decoration: none;" href="http://mccannlabs.com/abidjan/"><img src="<?php echo $urlimages; ?>site.png" />
 			<?php }
 			} else { 
 			?>
-				<img src="<?php echo $urlimages; ?>douala.png" width="80" height="25.3" style="width:80px" />
+				<a style="color:black;text-decoration: none;" href="http://mccann-afrique.com/"><img src="<?php echo $urlimages; ?>site.png" /></a>
 			<?php } ?>
+			</td>
+			</tr>
+			</tbody>
+			</table>
 		</td>
-		<td style="word-break:normal"></td>
 	</tr>
 </table>
 </xmp>
