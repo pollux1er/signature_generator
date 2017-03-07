@@ -228,9 +228,9 @@ Ceci génère un code HTML que vous pourrez copier et sauvegarder.</p>
 				<?php if(isset($_GET['pays'])){
 			
 			if($_GET['pays'] == 'douala') { ?>
-				<a style="color:black;text-decoration: none; " href="https://www.facebook.com/McCann-Douala-183130485072196/"><img style="padding-top: 5px;" src="http://gen-signature.mccannlabs.com/face.png" />
+				<a style="color:black;text-decoration: none; " href="https://www.facebook.com/McCann-Douala-183130485072196/"><img style="padding-top: 4px;" src="http://gen-signature.mccannlabs.com/face.png" />
 			</a><?php } else { ?>
-				<a style="color:black;text-decoration: none; " href="https://www.facebook.com/Entreprise.comm?fref=ts"><img style="padding-top: 5px;" src="http://gen-signature.mccannlabs.com/face-abidjan.png" /></a>
+				<a style="color:black;text-decoration: none; " href="https://www.facebook.com/Entreprise.comm?fref=ts"><img style="padding-top: 0px;" src="http://gen-signature.mccannlabs.com/face-abidjan.png" /></a>
 			<?php }
 			} else { 
 			?>
@@ -257,7 +257,7 @@ Ceci génère un code HTML que vous pourrez copier et sauvegarder.</p>
 			if($_GET['pays'] == 'douala') { ?>
 				<a style="color:black;text-decoration: none;" href="https://www.google.fr/maps/place/McCANN+Douala/@4.0444425,9.683916,17z/data=!3m1!4b1!4m5!3m4!1s0x106112fb09dcca83:0xbb93590cfd57ca73!8m2!3d4.0444425!4d9.6861047!5m1!1e1"><img src="<?php echo $urlimages; ?>location.png" /></a>
 			<?php } else { ?>
-				<a style="color:black;text-decoration: none;" href="https://www.google.fr/maps/place/McCANN+Abidjan/@5.3366183,-3.9962643,17z/data=!3m1!4b1!4m5!3m4!1s0xfc1eb823526c619:0x9669cb5fd7bcd491!8m2!3d5.336613!4d-3.9940756!5m1!1e1"><img src="<?php echo $urlimages; ?>location-abidjan.png" />
+				<a style="color:black;text-decoration: none;" href="https://www.google.fr/maps/place/McCANN+Abidjan/@5.3366183,-3.9962643,17z/data=!3m1!4b1!4m5!3m4!1s0xfc1eb823526c619:0x9669cb5fd7bcd491!8m2!3d5.336613!4d-3.9940756!5m1!1e1"><img style="padding-top: 5px;" src="<?php echo $urlimages; ?>location-abidjan.png" />
 			<?php }
 			} else { 
 			?>
